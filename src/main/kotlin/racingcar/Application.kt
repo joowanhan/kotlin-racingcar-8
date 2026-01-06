@@ -16,7 +16,10 @@ fun main() {
 	
 	println(resultMessage)
 	for (i in 1 .. attempts) {
-		cars.onEach { it.move() }.forEach { println("${it.name} : ${it.printStep()}") }
+		cars.forEach {
+			it.move()
+			println("${it.name} : ${it.printStep()}")
+		}
 		
 	}
 	

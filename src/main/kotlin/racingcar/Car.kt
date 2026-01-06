@@ -29,8 +29,7 @@ class Car(val name: String = "") {
 	}
 	
 	fun maxStep(cars: List<Car>): List<Car> {
-		val stepList = cars.map { it.step }
-		val maxStep = stepList.max()
+		val maxStep = cars.maxOfOrNull { it.step } ?: return emptyList()
 		
 		return cars.filter { it.step == maxStep }
 		

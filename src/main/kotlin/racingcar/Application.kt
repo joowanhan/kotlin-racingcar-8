@@ -21,7 +21,7 @@ fun main() {
 	
 	
 	println(resultMessage)
-	for (i in 1 .. attempts) {
+	repeat(attempts) {
 		cars.forEach {
 			it.move()
 			println("${it.name} : ${it.printStep()}")

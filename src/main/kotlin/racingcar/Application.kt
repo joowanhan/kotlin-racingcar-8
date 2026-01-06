@@ -20,4 +20,6 @@ fun main() {
 		
 	}
 	
+	Car().printWinners(cars)
+	
 }

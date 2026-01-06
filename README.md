@@ -18,12 +18,13 @@
         - [x] 횟수가 0 이하인 경우
         - [x] 이름 입력이 빈칸으로 받은 경우
         - [x] 이름이 5자 초과일 경우
-    - [ ] 전처리
-        - [ ] 빈 이름 처리 (ex: ,, 등으로 입력시 해당 이름은 제거)
-        - [ ] 같은 이름 입력 받으면 이름 뒤에 (number) 붙이기 (ex. a,a,a -> a,a(1) a(2) )
+    - [x] 전처리
+        - [x] 빈 이름 처리 (ex: ,, 등으로 입력시 해당 이름은 제거)
+        - [x] 같은 이름 입력 받으면 이름 뒤에 (number) 붙이기 (ex. a,a,a -> a,a(1) a(2) )
 - [ ] refactor
     - [ ] MVC 패턴 도입 (책임의 분리 (Separation of Concerns))
         - [ ] validation logic - Application.kt에서 분리 (Controller)
         - [ ] 출력 logic - Car.kt에서 분리 (View)
+        - [ ] 이름 중복 시 구별 logic - Application.kt에서 분리 (Controller)
 - [ ] test
     - [ ] JUnit 5와 AssertJ를 이용하여 정리한 기능 목록이 정상적으로 작동하는지 테스트 코드로 확인한다.

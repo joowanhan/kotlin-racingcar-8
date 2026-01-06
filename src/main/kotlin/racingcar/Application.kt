@@ -9,15 +9,18 @@ fun main() {
 	val resultMessage = "실행결과"
 	
 	println(nameMessage)
-	val names = readLine().split(",")
+	val names = readLine().split(",").filter { it.isNotBlank() }.map { it.trim() } // 빈 이름 전처리
 	require(names.isNotEmpty()) { "이름이 빈칸으로 입력될 수 없습니다." }
 	names.forEach { require(it.length <= 5) { "이름이 5자 초과입니다. (\"$it\" 등)" } }
+	val validNames = resolveDuplicateName(names)
+	
+	
 	
 	println(attemptsMessage)
 	val attempts = readLine().toIntOrNull() ?: throw IllegalArgumentException("Invalid number format")
 	require(attempts > 0) { "시도 횟수는 1 이상이어야 합니다." }
 	
-	val cars = names.map { Car(it) }
+	val cars = validNames.map { Car(it) }
 	
 	
 	println(resultMessage)
@@ -30,5 +33,20 @@ fun main() {
 	}
 	
 	Car.printWinners(cars)
+	
+}
+
+fun resolveDuplicateName(names: List<String>): List<String> {
+	val frequency = mutableMapOf<String, Int>() // name, count
+	
+	return names.map { name ->
+		val count = frequency.getOrDefault(name, 0) + 1
+		frequency[name] = count
+		if (count > 1) {
+			"$name(${count - 1})"
+		} else {
+			name
+		}
+	}
 	
 }

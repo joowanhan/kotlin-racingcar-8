@@ -23,6 +23,6 @@ fun main() {
 		
 	}
 	
-	Car().printWinners(cars)
+	Car.printWinners(cars)
 	
 }

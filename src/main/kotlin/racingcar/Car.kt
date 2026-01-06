@@ -8,6 +8,24 @@ class Car(val name: String = "") {
 	
 	var step = 0
 	
+	companion object {
+		
+		fun maxStep(cars: List<Car>): List<Car> {
+			val maxStep = cars.maxOfOrNull { it.step } ?: return emptyList()
+			
+			return cars.filter { it.step == maxStep }
+			
+		}
+		
+		fun printWinners(cars: List<Car>) {
+			val winners = maxStep(cars).map { it.name }
+			
+			val winningMessage = winners.joinToString(prefix = "최종 우승자 : ")
+			println(winningMessage)
+		}
+		
+	}
+	
 	fun move() {
 		val point = Randoms.pickNumberInRange(0, 9)
 		if (point >= threshold) {
@@ -18,20 +36,6 @@ class Car(val name: String = "") {
 	
 	fun printStep(): String {
 		return "-".repeat(step)
-		
-	}
-	
-	fun printWinners(cars: List<Car>) {
-		val winners = maxStep(cars).map { it.name }
-		
-		val winningMessage = winners.joinToString(prefix = "최종 우승자 : ")
-		println(winningMessage)
-	}
-	
-	fun maxStep(cars: List<Car>): List<Car> {
-		val maxStep = cars.maxOfOrNull { it.step } ?: return emptyList()
-		
-		return cars.filter { it.step == maxStep }
 		
 	}
 	

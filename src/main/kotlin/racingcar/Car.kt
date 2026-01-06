@@ -16,4 +16,9 @@ class Car(val name: String) {
 		
 	}
 	
+	fun printStep(): String {
+		return "-".repeat(step)
+		
+	}
+	
 }

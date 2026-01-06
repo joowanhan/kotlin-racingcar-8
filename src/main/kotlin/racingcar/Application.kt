@@ -8,4 +8,8 @@ fun main() {
 	
 	val cars = names.map { Car(it) }
 	
+	for (i in 1 .. attempts) {
+		cars.forEach { it.move() }
+	}
+	
 }

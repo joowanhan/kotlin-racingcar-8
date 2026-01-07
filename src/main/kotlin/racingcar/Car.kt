@@ -26,8 +26,7 @@ class Car(val name: String) {
 		
 	}
 	
-	fun move() {
-		val point = Randoms.pickNumberInRange(0, 9)
+	fun move(point: Int) {
 		if (point >= threshold) {
 			++step
 		}

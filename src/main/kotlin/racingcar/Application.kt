@@ -1,6 +1,7 @@
 package racingcar
 
 import camp.nextstep.edu.missionutils.Console.*
+import camp.nextstep.edu.missionutils.Randoms
 
 fun main() {
 	// TODO: 프로그램 구현
@@ -26,7 +27,8 @@ fun main() {
 	println(resultMessage)
 	repeat(attempts) {
 		cars.forEach {
-			it.move()
+			val point = Randoms.pickNumberInRange(0, 9)
+			it.move(point)
 			println("${it.name} : ${it.printStep()}")
 		}
 		

@@ -26,5 +26,9 @@
         - [ ] validation logic - Application.kt에서 분리 (Controller)
         - [ ] 출력 logic - Car.kt에서 분리 (View)
         - [ ] 이름 중복 시 구별 logic - Application.kt에서 분리 (Controller)
-- [ ] test
-    - [ ] JUnit 5와 AssertJ를 이용하여 정리한 기능 목록이 정상적으로 작동하는지 테스트 코드로 확인한다.
+- [ ] test: JUnit 5와 AssertJ를 이용하여 정리한 기능 목록이 정상적으로 작동하는지 테스트 코드로 확인한다.
+    - [ ] Car
+        - [x] printStep()
+        - [x] maxStep()
+        - [x] winningMessage()
+        - [ ] move()

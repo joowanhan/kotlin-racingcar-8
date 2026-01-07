@@ -28,8 +28,8 @@
         - [ ] 이름 중복 시 구별 logic - Application.kt에서 분리 (Controller)
         - [ ] random 값 추출 로직 Application.kt에서 분리
 - [ ] test: JUnit 5와 AssertJ를 이용하여 정리한 기능 목록이 정상적으로 작동하는지 테스트 코드로 확인한다.
-    - [ ] Car
+    - [x] Car
         - [x] printStep()
         - [x] maxStep()
         - [x] winningMessage()
-        - [ ] move()
+        - [x] move()

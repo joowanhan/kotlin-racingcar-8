@@ -2,6 +2,8 @@ package racingcar
 
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.params.ParameterizedTest
+import org.junit.jupiter.params.provider.CsvSource
 
 class CarTest {
 	// 자동차 이름, 시도 횟수 입력 테스트
@@ -58,6 +60,31 @@ class CarTest {
 		assertThat(winningMessage).contains("최종 우승자 : ", wany.name, yeji.name)
 		assertThat(winningMessage).doesNotContain(pobi.name)
 		
+	}
+	
+	@ParameterizedTest(name = "랜덤 숫자가 {0}이면 {1}칸 전진한다.")
+	@CsvSource(
+		"0,0",
+		"1,0",
+		"2,0",
+		"3,0",
+		"4,1",
+		"4,1",
+		"5,1",
+		"6,1",
+		"7,1",
+		"8,1",
+		"9,1",
+	)
+	fun `move() 테스트`(point: Int, expected: Int) {
+		// given
+		val car = Car("pobi")
+		
+		// when
+		car.move(point)
+		
+		// then
+		assertThat(car.step).isEqualTo(expected)
 	}
 	
 }

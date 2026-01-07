@@ -12,7 +12,7 @@
 - [x] 차수별 실행 결과 출력
 - [x] 자동차 클래스의 진행상황 비교 로직
 - [x] 우승자 출력 (단독, 공동)
-- [ ] 예외 처리
+- [x] 예외 처리
     - [x] 사용자가 잘못된 값 입력 시 IllegalArgumentException 발생 후 종료
         - [x] 횟수가 Int가 아닌 경우
         - [x] 횟수가 0 이하인 경우
@@ -26,7 +26,7 @@
         - [ ] validation logic - Application.kt에서 분리 (Controller)
         - [ ] 출력 logic - Car.kt에서 분리 (View)
         - [ ] 이름 중복 시 구별 logic - Application.kt에서 분리 (Controller)
-        - [ ] random 값 추출 로직 Application.kt에서 분리
+        - [ ] random 값 추출 로직 Application.kt에서 분리 (Controller)
 - [ ] test: JUnit 5와 AssertJ를 이용하여 정리한 기능 목록이 정상적으로 작동하는지 테스트 코드로 확인한다.
     - [x] Car
         - [x] printStep()

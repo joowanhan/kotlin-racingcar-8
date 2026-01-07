@@ -32,7 +32,7 @@ fun main() {
 		
 	}
 	
-	Car.printWinners(cars)
+	println(Car.winningMessage(cars))
 	
 }
 

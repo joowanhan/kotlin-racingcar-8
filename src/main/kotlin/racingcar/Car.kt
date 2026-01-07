@@ -17,11 +17,11 @@ class Car(val name: String) {
 			
 		}
 		
-		fun printWinners(cars: List<Car>) {
+		fun winningMessage(cars: List<Car>): String {
 			val winners = extractWinners(cars).map { it.name }
 			
 			val winningMessage = winners.joinToString(prefix = "최종 우승자 : ")
-			println(winningMessage)
+			return winningMessage
 		}
 		
 	}

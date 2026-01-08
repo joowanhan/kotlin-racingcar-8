@@ -39,10 +39,11 @@
             - [x] 이름 중복 시 구별 로직: Application.kt에서 분리 (Controller)
             - [x] random 값 추출 로직: Application.kt에서 분리 (Controller)
         - [x] DTO
-- [ ] test: JUnit 5와 AssertJ를 이용하여 정리한 기능 목록이 정상적으로 작동하는지 테스트 코드로 확인한다.
-    - [ ] MVC 패턴 리팩토링 후 테스트 코드 리팩토링
+- [x] test: JUnit 5와 AssertJ를 이용하여 정리한 기능 목록이 정상적으로 작동하는지 테스트 코드로 확인한다.
+    - [x] MVC 패턴 리팩토링 후 테스트 코드 리팩토링
     - [x] Car
-        - [x] printStep()
-        - [x] maxStep()
-        - [x] winningMessage()
-        - [x] move()
+        - [x] 유효성 검사: 이름이 5자를 넘을 때 예외가 터지는가?
+        - [x] 이동 로직: 전략에 따라 step이 증가하거나 유지되는가?
+    - [x] Cars
+        - [x] 우승자 판별 로직을 검증
+        - [x] 전체 자동차 move 로직 검증

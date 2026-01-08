@@ -1,6 +1,6 @@
 package racingcar.domain
 
-import org.assertj.core.api.Assertions.assertThat
+import org.assertj.core.api.Assertions.*
 import org.junit.jupiter.api.Test
 import racingcar.domain.strategy.MovingStrategy
 
@@ -9,35 +9,77 @@ class CarsTest {
 	@Test
 	fun `모든 자동차가 전략에 따라 전진한다`() {
 		// given
-		val cars = Cars(listOf("pobi", "woni").map { Car(it) })
+		val pobi = Car("pobi")
+		val wany = Car("wany")
 		
-		// 테스트용 전략: 무조건 true 반환 (람다 사용) SAM
-		val alwaysMoveStrategy = MovingStrategy { true }
+		val cars = Cars(listOf(pobi, wany))
 		
-		// when
-		cars.moveAll(alwaysMoveStrategy)
+		// when (SAM) (강추)
+		cars.moveAll { true }
 		
 		// then
-		// Cars -> CarDto 변환 로직을 통해 검증하거나,
-		// 테스트를 위해 Cars에 객체를 노출하는 메서드가 없다면
-		// 우승자 로직 등으로 간접 검증
-		val winners = cars.extractWinner()
-		assertThat(winners).contains("pobi", "woni")
+		assertThat(pobi.step).isEqualTo(1)
+		assertThat(wany.step).isEqualTo(1)
 	}
 	
 	@Test
 	fun `전략이 false면 전진하지 않는다`() {
 		// given
-		val cars = Cars(listOf("pobi", "woni").map { Car(it) })
-		val stopStrategy = MovingStrategy { false } // SAM
+		val pobi = Car("pobi")
+		val wany = Car("wany")
+		
+		val cars = Cars(listOf(pobi, wany))
+		
+		// 테스트용 전략: 무조건 true 반환 (람다 사용) SAM (비추)
+		val falseStrategy = MovingStrategy { false }
 		
 		// when
-		cars.moveAll(stopStrategy)
+		cars.moveAll(falseStrategy)
 		
 		// then
-		// 움직이지 않았으므로 step은 0일 것이고,
-		// DTO나 다른 방식을 통해 검증 가능
-		val dtos = cars.toDtoList()
-		assertThat(dtos[0].step).isEqualTo(0)
+		assertThat(pobi.step).isEqualTo(0)
+		assertThat(wany.step).isEqualTo(0)
+		
+	}
+	
+	@Test
+	fun `승자가 한명일 때 제대로 뽑는지 확인한다`() {
+		// given
+		val pobi = Car("pobi")
+		val wany = Car("wany")
+		
+		val cars = Cars(listOf(pobi, wany))
+		
+		pobi.move { true }
+		pobi.move { true }
+		wany.move { true }
+		
+		// when
+		val winner = cars.extractWinner()
+		
+		// then
+		assertThat(winner).contains("pobi")
+		assertThat(winner).doesNotContain("wany")
+		
+	}
+	
+	fun `승자가 두명일 때 제대로 뽑는지 확인한다`() {
+		// given
+		val pobi = Car("pobi")
+		val wany = Car("wany")
+		
+		val cars = Cars(listOf(pobi, wany))
+		
+		pobi.move { true }
+		pobi.move { true }
+		wany.move { true }
+		wany.move { true }
+		
+		// when
+		val winner = cars.extractWinner()
+		
+		// then
+		assertThat(winner).contains("pobi", "wany")
+		
 	}
 }

@@ -15,13 +15,12 @@ object OutputView {
 		println("${carDto.name} : ${"-".repeat(carDto.step)}")
 	}
 	
+	fun printRacingAll(carDtos: List<CarDto>) {
+		carDtos.forEach { (name, step) -> println("$name : ${"-".repeat(step)}") }
+	}
+	
 	fun printWinners(winners: List<String>) {
 		val winningMessage = winners.joinToString(prefix = "최종 우승자 : ")
 		println(winningMessage)
-	}
-	
-	fun getStep(car: Car): String {
-		return "-".repeat(car.step)
-		
 	}
 }

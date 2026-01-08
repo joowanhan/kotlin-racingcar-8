@@ -29,9 +29,10 @@
                     - 응집도를 높임: 자동차 관련 규칙은 전부 자동차 클래스로
                     - 무결성 보장: 잘못된 객체의 생성 자체를 막음
                     - 자동차 클래스만 보고 자동차에 대한 규칙을 알 수 있음
-            - [ ] Cars
+            - [x] Cars
                 - 일급 컬렉션(First-Class Collection)으로 분리
                     - 비즈니스 로직의 캡슐화(객체지향적)
+                - [ ] testable 하게 Random 추출을 분리
         - [x] View
             - [x] 입출력 logic - Car.kt에서 분리 (View)
         - [x] Controller

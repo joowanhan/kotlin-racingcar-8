@@ -2,6 +2,7 @@ package racingcar.controller
 
 import camp.nextstep.edu.missionutils.Randoms
 import racingcar.domain.Car
+import racingcar.domain.Cars
 import racingcar.view.InputView
 import racingcar.view.OutputView
 
@@ -9,25 +10,18 @@ class RacingGameController {
 	
 	fun run() {
 		val names = resolveDuplicateName(InputView.readCarNames())
-		val cars = names.map { Car(it) }
+		val cars = Cars(names.map { Car(it) })
 		val attempts = InputView.readAttemptCount()
 		
 		OutputView.printStart()
 		repeat(attempts) {
-			cars.forEach { car ->
-				racing(car)
-				OutputView.printRacing(car.toDto())
-			}
+			cars.moveAll()
+			OutputView.printRacingAll(cars.toDtoList())
 			
 		}
-		val winners = Car.extractWinner(cars)
+		val winners = cars.extractWinner()
 		OutputView.printWinners(winners)
 		
-	}
-	
-	fun racing(car: Car) {
-		val point = Randoms.pickNumberInRange(0, 9)
-		car.move(point)
 	}
 	
 	fun resolveDuplicateName(names: List<String>): List<String> {

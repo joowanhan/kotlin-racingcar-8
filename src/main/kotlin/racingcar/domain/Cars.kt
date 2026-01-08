@@ -1,14 +1,14 @@
 package racingcar.domain
 
 import camp.nextstep.edu.missionutils.Randoms
+import racingcar.domain.strategy.MovingStrategy
 import racingcar.dto.CarDto
 
 class Cars(val cars: List<Car>) {
 	
-	fun moveAll() {
+	fun moveAll(movingStrategy: MovingStrategy) {
 		cars.forEach { car ->
-			val point = Randoms.pickNumberInRange(0, 9)
-			car.move(point)
+			car.move(movingStrategy)
 		}
 	}
 	

@@ -3,6 +3,7 @@ package racingcar.controller
 import camp.nextstep.edu.missionutils.Randoms
 import racingcar.domain.Car
 import racingcar.domain.Cars
+import racingcar.domain.strategy.RandomMovingStrategy
 import racingcar.view.InputView
 import racingcar.view.OutputView
 
@@ -13,9 +14,11 @@ class RacingGameController {
 		val cars = Cars(names.map { Car(it) })
 		val attempts = InputView.readAttemptCount()
 		
+		val movingStrategy = RandomMovingStrategy()
+		
 		OutputView.printStart()
 		repeat(attempts) {
-			cars.moveAll()
+			cars.moveAll(movingStrategy)
 			OutputView.printRacingAll(cars.toDtoList())
 			
 		}

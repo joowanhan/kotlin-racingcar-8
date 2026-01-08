@@ -1,5 +1,6 @@
 package racingcar.domain
 
+import racingcar.domain.strategy.MovingStrategy
 import racingcar.dto.CarDto
 
 class Car(val name: String) {
@@ -21,11 +22,10 @@ class Car(val name: String) {
 		}
 	}
 	
-	fun move(point: Int) {
-		if (point >= THRESHOLD) {
+	fun move(movingStrategy: MovingStrategy) {
+		if (movingStrategy.isMovable()) {
 			++step
 		}
-		
 	}
 	
 	fun toDto(): CarDto {

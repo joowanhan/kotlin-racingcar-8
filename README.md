@@ -21,9 +21,9 @@
     - [x] 전처리
         - [x] 빈 이름 처리 (ex: ,, 등으로 입력시 해당 이름은 제거)
         - [x] 같은 이름 입력 받으면 이름 뒤에 (number) 붙이기 (ex. a,a,a -> a,a(1) a(2) )
-- [ ] refactor
-    - [ ] MVC 패턴 도입 (책임의 분리 (Separation of Concerns))
-        - [ ] Model
+- [x] refactor
+    - [x] MVC 패턴 도입 (책임의 분리 (Separation of Concerns))
+        - [x] Model
             - [x] Car
                 - [x] 이름 검증 로직을 생성자에서 처리함
                     - 응집도를 높임: 자동차 관련 규칙은 전부 자동차 클래스로
@@ -32,7 +32,7 @@
             - [x] Cars
                 - 일급 컬렉션(First-Class Collection)으로 분리
                     - 비즈니스 로직의 캡슐화(객체지향적)
-                - [ ] testable 하게 Random 추출을 분리
+                - [x] testable 하게 Random 추출을 분리
         - [x] View
             - [x] 입출력 logic - Car.kt에서 분리 (View)
         - [x] Controller

@@ -9,7 +9,7 @@ class CarTest {
 	@Test
 	fun `이름이 5글자가 넘어가면 예외 발생`() {
 		// given
-		val name = "12345"
+		val name = "123456"
 		// when, then
 		assertThatThrownBy { Car(name) }.isInstanceOf(IllegalArgumentException::class.java)
 			.hasMessageContaining("이름이 5자 초과입니다.")

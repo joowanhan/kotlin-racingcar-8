@@ -1,6 +1,5 @@
 package racingcar.controller
 
-import camp.nextstep.edu.missionutils.Randoms
 import racingcar.domain.Car
 import racingcar.domain.Cars
 import racingcar.domain.strategy.RandomMovingStrategy

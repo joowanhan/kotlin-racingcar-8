@@ -63,6 +63,7 @@ class CarsTest {
 		
 	}
 	
+	@Test
 	fun `승자가 두명일 때 제대로 뽑는지 확인한다`() {
 		// given
 		val pobi = Car("pobi")

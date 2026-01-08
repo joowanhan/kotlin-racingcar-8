@@ -24,16 +24,22 @@
 - [ ] refactor
     - [ ] MVC 패턴 도입 (책임의 분리 (Separation of Concerns))
         - [ ] Model
-            - [ ] Car
+            - [x] Car
+                - [x] 이름 검증 로직을 생성자에서 처리함
+                    - 응집도를 높임: 자동차 관련 규칙은 전부 자동차 클래스로
+                    - 무결성 보장: 잘못된 객체의 생성 자체를 막음
+                    - 자동차 클래스만 보고 자동차에 대한 규칙을 알 수 있음
             - [ ] Cars
-        - [ ] View
-            - [ ] 입출력 logic - Car.kt에서 분리 (View)
-        - [ ] Controller
-            - [ ] validation logic - Application.kt에서 분리 (Controller)
-            - [ ] 이름 중복 시 구별 logic - Application.kt에서 분리 (Controller)
-            - [ ] random 값 추출 로직 Application.kt에서 분리 (Controller)
-        - [ ] DTO
+                - 일급 컬렉션(First-Class Collection)으로 분리
+                    - 비즈니스 로직의 캡슐화(객체지향적)
+        - [x] View
+            - [x] 입출력 logic - Car.kt에서 분리 (View)
+        - [x] Controller
+            - [x] 이름 중복 시 구별 로직: Application.kt에서 분리 (Controller)
+            - [x] random 값 추출 로직: Application.kt에서 분리 (Controller)
+        - [x] DTO
 - [ ] test: JUnit 5와 AssertJ를 이용하여 정리한 기능 목록이 정상적으로 작동하는지 테스트 코드로 확인한다.
+    - [ ] MVC 패턴 리팩토링 후 테스트 코드 리팩토링
     - [x] Car
         - [x] printStep()
         - [x] maxStep()

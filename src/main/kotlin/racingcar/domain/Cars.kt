@@ -1,6 +1,5 @@
 package racingcar.domain
 
-import camp.nextstep.edu.missionutils.Randoms
 import racingcar.domain.strategy.MovingStrategy
 import racingcar.dto.CarDto
 

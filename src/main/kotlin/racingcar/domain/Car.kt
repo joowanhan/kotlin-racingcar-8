@@ -12,16 +12,6 @@ class Car(val name: String) {
 	
 	var step = 0
 	
-	companion object {
-		
-		const val THRESHOLD = 4
-		fun extractWinner(cars: List<Car>): List<String> {
-			val maxStep = cars.maxOfOrNull { car -> car.step }
-			return cars.filter { it.step == maxStep }.map { it.name }
-			
-		}
-	}
-	
 	fun move(movingStrategy: MovingStrategy) {
 		if (movingStrategy.isMovable()) {
 			++step

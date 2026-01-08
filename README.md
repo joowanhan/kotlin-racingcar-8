@@ -23,10 +23,16 @@
         - [x] 같은 이름 입력 받으면 이름 뒤에 (number) 붙이기 (ex. a,a,a -> a,a(1) a(2) )
 - [ ] refactor
     - [ ] MVC 패턴 도입 (책임의 분리 (Separation of Concerns))
-        - [ ] validation logic - Application.kt에서 분리 (Controller)
-        - [ ] 출력 logic - Car.kt에서 분리 (View)
-        - [ ] 이름 중복 시 구별 logic - Application.kt에서 분리 (Controller)
-        - [ ] random 값 추출 로직 Application.kt에서 분리 (Controller)
+        - [ ] Model
+            - [ ] Car
+            - [ ] Cars
+        - [ ] View
+            - [ ] 입출력 logic - Car.kt에서 분리 (View)
+        - [ ] Controller
+            - [ ] validation logic - Application.kt에서 분리 (Controller)
+            - [ ] 이름 중복 시 구별 logic - Application.kt에서 분리 (Controller)
+            - [ ] random 값 추출 로직 Application.kt에서 분리 (Controller)
+        - [ ] DTO
 - [ ] test: JUnit 5와 AssertJ를 이용하여 정리한 기능 목록이 정상적으로 작동하는지 테스트 코드로 확인한다.
     - [x] Car
         - [x] printStep()
